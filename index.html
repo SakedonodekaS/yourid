@@ -35,6 +35,9 @@
 		button:hover {
 			background-color: #A62256;
 		}
+        button #resetButton {
+            background-color: #fff;
+        }
 	</style>
 </head>
 <body>
@@ -44,6 +47,7 @@
 		<button id="aButton" onclick="selectA()">게임용</button>
 		<button id="bButton" onclick="selectB()">OTT, 유튜브 등을 시청할 스마트모니터</button>
         <button id="cButton" onclick="selectC()">가정용/사무용</button>
+        <button id="resetButton" onClick="window.location.reload()">처음 화면으로</button>
 	</div>
 	<script>
 		function selectA() {
@@ -138,9 +142,10 @@
 
 
 		function showResult(result) {
-			document.getElementById("question").innerHTML = "결과: " + result;
+			document.getElementById("question").innerHTML = "추천 모니터는 " + result + " 입니다.";
 			document.getElementById("aButton").style.display = "none";
 			document.getElementById("bButton").style.display = "none";
+            document.getElementById("cButton").style.display = "none";
 		}
 	</script>
 </body>
