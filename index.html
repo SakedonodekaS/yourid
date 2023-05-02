@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>초보자를 위한 나에게 맞는 모니터 추천</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+		h1 {
+			text-align: center;
+			margin-top: 50px;
+            font-size: 50px;
+		}
+		.container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-top: 50px;
+		}
+        .container #question {
+            font-size: 30px;
+        }
+		button {
+			margin-top: 20px;
+			padding: 10px 20px;
+			font-size: 18px;
+			border-radius: 5px;
+			border: none;
+			background-color: #A50034;
+			color: #fff;
+			cursor: pointer;
+		}
+		button:hover {
+			background-color: #A62256;
+		}
+	</style>
+</head>
+<body>
+	<h1>초보자를 위한 나에게 맞는 모니터 추천</h1>
+	<div class="container">
+		<p id="question">구매 목적을 선택해주세요</p>
+		<button id="aButton" onclick="selectA()">게임용</button>
+		<button id="bButton" onclick="selectB()">OTT, 유튜브 등을 시청할 스마트모니터</button>
+        <button id="cButton" onclick="selectC()">가정용/사무용</button>
+	</div>
+	<script>
+		function selectA() {
+			document.getElementById("question").innerHTML = "32인치 미만 일반형이 필요하신가요 <br> 32인치 이상 대형이 필요하신가요?";
+            document.getElementById("aButton").innerHTML = "32인치 미만 일반형"
+            document.getElementById("bButton").innerHTML = "32인치 이상 대형"
+            document.getElementById("cButton").remove();
+            document.getElementById("aButton").onclick = select32low;
+            document.getElementById("bButton").onclick = select32high;
+		}
+        function select32low() {
+            document.getElementById("question").innerHTML = "보급형이 필요하신가요 <br> 고급형이 필요하신가요?";
+            document.getElementById("aButton").innerHTML = "보급형"
+            document.getElementById("bButton").innerHTML = "고급형"
+            document.getElementById("aButton").onclick = result32lowbo;
+            document.getElementById("bButton").onclick = result32lowgo;
+        }
+        function result32lowbo(){
+            showResult("24GN600, 24GN60K");
+        }
+        function result32lowgo(){
+            showResult("27GP850");
+        }
+        function select32high() {
+            document.getElementById("question").innerHTML = "고급형이 필요하신가요 <br> 프리미엄형이 필요하신가요?";
+            document.getElementById("aButton").innerHTML = "고급형"
+            document.getElementById("bButton").innerHTML = "프리미엄형"
+            document.getElementById("aButton").onclick = result32highgo;
+            document.getElementById("bButton").onclick = result32highpre;
+        }
+        function result32highgo(){
+            showResult("32UN650, 32GP850");
+        }
+        function result32highpre(){
+            showResult("32GQ850L, 34GP950G, 45GR95QE");
+        }
+
+
+
+		function selectB() {
+			document.getElementById("question").innerHTML = "고화질이 필요하신가요 <br> 초고화질이 필요하신가요?";
+            document.getElementById("aButton").innerHTML = "고화질"
+            document.getElementById("bButton").innerHTML = "초고화질"
+            document.getElementById("cButton").remove();
+            document.getElementById("aButton").onclick = selectgohwa;
+            document.getElementById("bButton").onclick = selectchogohwa;
+		}
+        function selectgohwa() {
+           showResult("27TQ615SP");
+        }
+        function selectchogohwa() {
+            document.getElementById("question").innerHTML = "높낮이, 각도 조절만 가능한 고정형이 필요하신가요 <br> 높낮이, 각도, 방향회전, 모니터회전이 가능한 부착형이 필요하신가요?";
+            document.getElementById("aButton").innerHTML = "고정형"
+            document.getElementById("bButton").innerHTML = "부착형"
+            document.getElementById("aButton").onclick = resultgo;
+            document.getElementById("bButton").onclick = resultboo;
+        }
+        function resultgo() {
+           showResult("32SQ730SW, 32SQ730SW+스탠드세트");
+        }
+        function resultboo() {
+           showResult("32SQ780SW");
+        }
+
+
+
+        function selectC() {
+			document.getElementById("question").innerHTML = "16:9 보통형이 필요하신가요 <br> 21:9 더 넓은 와이드형이 필요하신가요?";
+            document.getElementById("aButton").innerHTML = "보통형"
+            document.getElementById("bButton").innerHTML = "와이드형"
+            document.getElementById("cButton").remove();
+            document.getElementById("aButton").onclick = selectbotong;
+            document.getElementById("bButton").onclick = selectwide;
+		}
+        function selectbotong() {
+            document.getElementById("question").innerHTML = "27인치 미만 일반형이 필요하신가요 <br> 27인치 이상 대형이 필요하신가요?";
+            document.getElementById("aButton").innerHTML = "일반형"
+            document.getElementById("bButton").innerHTML = "대형"
+            document.getElementById("aButton").onclick = resultno;
+            document.getElementById("bButton").onclick = resultdae;
+        }
+        function resultno() {
+           showResult("22MP410W, 24ML600SW");
+        }
+        function resultdae() {
+           showResult("27MN430HW, 32MN500MW");
+        }
+        function selectwide() {
+           showResult("38WP85C");
+        }
+
+
+
+		function showResult(result) {
+			document.getElementById("question").innerHTML = "결과: " + result;
+			document.getElementById("aButton").style.display = "none";
+			document.getElementById("bButton").style.display = "none";
+		}
+	</script>
+</body>
+</html>
